@@ -1,0 +1,56 @@
+[
+  {
+    "id": "skynovels",
+    "name": "SkyNovels",
+    "site": "https://www.skynovels.net/",
+    "lang": "Español",
+    "version": "1.1.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/skynovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/skynovels/icon.png"
+  },
+  {
+    "id": "mvlempyr.com",
+    "name": "MVLempyr",
+    "site": "https://www.mvlempyr.io/",
+    "lang": "English",
+    "version": "1.0.15",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/mvlempyr.com.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/mvlempyr/icon.png"
+  },
+  {
+    "id": "fenrir",
+    "name": "Fenrir Realm",
+    "site": "https://fenrirealm.com",
+    "lang": "English",
+    "version": "1.1.3",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/fenrir.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/fenrirrealm/icon.png"
+  },
+  {
+    "id": "quanben",
+    "name": "Quanben",
+    "site": "https://www.quanben.io/",
+    "lang": "中文, 汉语, 漢語",
+    "version": "1.1.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/quanben.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/cn/quanben/icon.png"
+  },
+  {
+    "id": "dilartube",
+    "name": "dilar tube",
+    "site": "https://golden.rest/",
+    "lang": "‎العربية",
+    "version": "1.0.3",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/dilartube.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/ar/dilartube/icon.png"
+  },
+  {
+    "id": "tunovelaligera",
+    "name": "TuNovelaLigera",
+    "site": "https://tunovelaligera.com",
+    "lang": "Español",
+    "version": "1.2.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/tunovelaligera.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/tunovelaligera/icon.png"
+  }
+]

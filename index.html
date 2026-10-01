@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novel Sources</title>
+<meta name="description" content="Extensiones corregidas para lectores de novelas compatibles con el formato de LNReader.">
+<style>
+  :root { --bg:#f7f5f2; --card:#ffffff; --text:#1d1b19; --muted:#6b655e; --line:#e4dfd8; --accent:#b4532a; --ok:#2e7d4f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#151412; --card:#1f1d1a; --text:#f1ede7; --muted:#a39b91; --line:#33302b; --accent:#e58a5c; --ok:#6cc08d; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:32px; margin:0 0 4px; letter-spacing:-0.02em; }
+  .sub { color:var(--muted); margin:0 0 28px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin-bottom:24px; }
+  .label { font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin:0 0 8px; }
+  .url { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  code { flex:1 1 280px; min-width:0; overflow-wrap:anywhere; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:14px; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:8px; padding:10px 16px; font-size:15px; font-weight:600; cursor:pointer; }
+  button.done { background:var(--ok); }
+  ol { margin:8px 0 0; padding-left:20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:12px; }
+  .src { display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
+  .src img { width:40px; height:40px; border-radius:8px; background:var(--bg); flex:none; }
+  .src b { display:block; }
+  .src span { color:var(--muted); font-size:13px; overflow-wrap:anywhere; }
+  footer { color:var(--muted); font-size:13px; margin-top:32px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Novel Sources</h1>
+  <p class="sub">Extensiones corregidas para lectores de novelas compatibles con el formato de LNReader.<br>
+  <em>Fixed extensions for novel readers that support the LNReader plugin format.</em></p>
+
+  <div class="box">
+    <p class="label">Repositorio · Repository</p>
+    <div class="url">
+      <code id="repo">https://raw.githubusercontent.com/Novel-Sources/extensions/main/plugins.json</code>
+      <button id="copy" type="button">Copiar</button>
+    </div>
+    <ol>
+      <li>Copia la dirección.</li>
+      <li>En tu lector: <b>Extensiones → Repositorios → Añadir</b>.</li>
+      <li>Pégala y acepta. Las extensiones aparecen para instalar.</li>
+    </ol>
+  </div>
+
+  <p class="label">Extensiones · Extensions</p>
+  <div class="grid" id="list"><p class="sub">Cargando…</p></div>
+
+  <footer>
+    Cada extensión es la oficial de LNReader sin tocar más una corrección aparte (licencia MIT).
+    ¿Administras una de estas webs y quieres que se retire su extensión? Abre un
+    <a href="https://github.com/Novel-Sources/extensions/issues">issue</a> y se retira.
+  </footer>
+</main>
+<script>
+  const copy = document.getElementById('copy');
+  copy.addEventListener('click', async () => {
+    const text = document.getElementById('repo').textContent.trim();
+    try { await navigator.clipboard.writeText(text); }
+    catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('repo'));
+            const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); }
+    copy.textContent = 'Copiada ✓'; copy.classList.add('done');
+    setTimeout(() => { copy.textContent = 'Copiar'; copy.classList.remove('done'); }, 2000);
+  });
+  fetch('plugins.json', { cache: 'no-cache' }).then(r => r.json()).then(list => {
+    const grid = document.getElementById('list'); grid.textContent = '';
+    for (const p of list.sort((a, b) => a.name.localeCompare(b.name))) {
+      const card = document.createElement('div'); card.className = 'src';
+      const img = document.createElement('img'); img.alt = ''; img.loading = 'lazy'; img.src = p.iconUrl || '';
+      img.onerror = () => { img.style.visibility = 'hidden'; };
+      const text = document.createElement('div');
+      const name = document.createElement('b'); name.textContent = p.name;
+      const meta = document.createElement('span');
+      meta.textContent = `${(p.site || '').replace(/^https?:\/\//, '').replace(/\/$/, '')} · ${p.lang} · v${p.version}`;
+      text.append(name, meta); card.append(img, text); grid.append(card);
+    }
+  }).catch(() => { document.getElementById('list').innerHTML = '<p class="sub">No se pudo cargar la lista.</p>'; });
+</script>
+</body>
+</html>
