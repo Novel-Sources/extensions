@@ -22,6 +22,9 @@
   button { background:var(--accent); color:#fff; border:0; border-radius:8px; padding:10px 16px; font-size:15px; font-weight:600; cursor:pointer; }
   button.done { background:var(--ok); }
   ol { margin:8px 0 0; padding-left:20px; }
+  .add { display:block; text-align:center; background:var(--accent); color:#fff; text-decoration:none; font-weight:700;
+         font-size:17px; border-radius:10px; padding:14px 16px; margin-bottom:10px; }
+  .hint { color:var(--muted); font-size:13px; margin:0 0 18px; text-align:center; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:12px; }
   .src { display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
   .src img { width:40px; height:40px; border-radius:8px; background:var(--bg); flex:none; }
@@ -38,6 +41,9 @@
   <em>Fixed extensions for novel readers that support the LNReader plugin format.</em></p>
 
   <div class="box">
+    <a class="add" id="add" href="lnrepo://add?url=https%3A%2F%2Fraw.githubusercontent.com%2FNovel-Sources%2Fextensions%2Fmain%2Fplugins.json">Añadir a mi lector</a>
+    <p class="hint">Abre tu lector y te pide confirmación. Si no se abre, copia la dirección de abajo.<br>
+    <em>Opens your reader and asks to confirm. If nothing happens, copy the address below.</em></p>
     <p class="label">Repositorio · Repository</p>
     <div class="url">
       <code id="repo">https://raw.githubusercontent.com/Novel-Sources/extensions/main/plugins.json</code>
