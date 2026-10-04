@@ -15,7 +15,7 @@ var e=this&&this.__awaiter||function(e,n,a,l){return new(a||(a=Promise))((functi
   var fetchLib = require('@libs/fetch');
   var api = plugin.apiSite || 'https://api.skynovels.net/api/';
 
-  plugin.version = '1.1.2';
+  plugin.version = '1.1.3';
   var genres = plugin.filters && plugin.filters.genres;
   plugin.filters = {
     order: {
@@ -110,6 +110,70 @@ var e=this&&this.__awaiter||function(e,n,a,l){return new(a||(a=Promise))((functi
           status: novel.nvl_status,
           chapters: chapters
         };
+      });
+  };
+  // 1.1.3 · El capítulo llega en Markdown, que la web convierte al mostrarlo:
+  // negritas con **, cursivas con _, citas con >, títulos con #, separadores
+  // *** o ___ y caracteres escapados con \. La oficial sólo cambiaba los saltos
+  // de línea, y el lector veía los asteriscos y las barras tal cual.
+  function escapeHtml(text) {
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function inline(text) {
+    // Lo escapado con \ se aparta para que no cuente como marca.
+    var kept = [];
+    text = text.replace(/\\([\\`*_{}\[\]()#+\-.!>~|])/g, function (_, ch) {
+      kept.push(ch);
+      return '' + (kept.length - 1) + '';
+    });
+    text = escapeHtml(text)
+      .replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/__([^_]+?)__/g, '<strong>$1</strong>')
+      .replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?![*\w])/g, '$1<em>$2</em>')
+      .replace(/(^|[^_\w])_([^_\s][^_]*?)_(?![_\w])/g, '$1<em>$2</em>');
+    return text.replace(/(\d+)/g, function (_, i) { return escapeHtml(kept[+i]); });
+  }
+
+  function markdownToHtml(markdown) {
+    var html = [], paragraph = [], quote = [];
+    function block(lines) { return inline(lines.join('\n')).replace(/\n/g, '<br>'); }
+    function flush() {
+      if (paragraph.length) { html.push('<p>' + block(paragraph) + '</p>'); paragraph = []; }
+      if (quote.length) { html.push('<blockquote><p>' + block(quote) + '</p></blockquote>'); quote = []; }
+    }
+    String(markdown || '').replace(/\r\n?/g, '\n').split('\n').forEach(function (line) {
+      var text = line.trim();
+      if (!text) { flush(); return; }
+      // Separador de escena: ***, * * *, ---, ___, también escapados con \.
+      if (/^(?:\\?[*_\-]\s*){3,}$/.test(text)) { flush(); html.push('<hr>'); return; }
+      var heading = /^(#{1,6})\s+(.*)$/.exec(text);
+      if (heading) {
+        flush();
+        var level = Math.max(2, Math.min(6, heading[1].length));
+        html.push('<h' + level + '>' + inline(heading[2]) + '</h' + level + '>');
+        return;
+      }
+      var quoted = /^>\s?(.*)$/.exec(text);
+      if (quoted) {
+        if (paragraph.length) flush();
+        quote.push(quoted[1]);
+        return;
+      }
+      if (quote.length) flush();
+      paragraph.push(text);
+    });
+    flush();
+    return html.join('\n');
+  }
+
+  plugin.parseChapter = function (chapterPath) {
+    var id = chapterPath.split('/')[3];
+    return fetchLib.fetchApi(api + 'novel-chapter/' + id, { headers: { 'Cache-Control': 'no-cache' } })
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        var chapter = (data && data.chapter && data.chapter[0]) || {};
+        return markdownToHtml(chapter.chp_content);
       });
   };
 })();
