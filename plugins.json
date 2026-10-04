@@ -97,5 +97,14 @@
     "version": "1.0.0",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/pabellonliterario.js",
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/pabellonliterario.png"
+  },
+  {
+    "id": "AnimesHoy12",
+    "name": "Anslid Novels",
+    "site": "https://anslid.com/",
+    "lang": "Español",
+    "version": "2.2.1",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/AnimesHoy12.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/anslid.png"
   }
 ]
