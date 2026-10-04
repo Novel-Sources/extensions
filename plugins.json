@@ -88,5 +88,14 @@
     "version": "2.2.1",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/azora.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/madara/azora/icon.png"
+  },
+  {
+    "id": "pabellonliterario",
+    "name": "Pabellón Literario",
+    "site": "https://pabellonliterario.com/",
+    "lang": "Español",
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/pabellonliterario.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/pabellonliterario.png"
   }
 ]

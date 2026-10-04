@@ -33,7 +33,16 @@ O abre la página: https://novel-sources.github.io/extensions/
 
 Novel Arrow y Azora cambian de sitio: el lector debe confirmar el cambio a la versión corregida.
 
-Cada archivo es **la extensión oficial de LNReader sin tocar**, más una
+## Nuevas · New
+
+Escritas desde cero para webs que no tenían extensión. No llevan código de
+LNReader. *Written from scratch for sites that had no extension.*
+
+| Extensión | Versión | Qué trae |
+|---|---|---|
+| Pabellón Literario | 1.0.0 | Biblioteca con todos sus filtros (29 géneros, traducción, idioma original, clasificación y orden), búsqueda, novedades, capítulos agrupados por arco y el texto sin los botones de comentarios |
+
+Cada extensión corregida es **la extensión oficial de LNReader sin tocar**, más una
 corrección al final, separada y comentada, para que se vea exactamente qué
 cambió. Las extensiones oficiales son de github.com/LNReader/lnreader-plugins,
 con licencia MIT (ver `LICENSE-LNReader.txt`).
