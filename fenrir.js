@@ -16,7 +16,7 @@ var e=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((functi
   var cheerio = require('cheerio');
   var FilterTypes = require('@libs/filterInputs').FilterTypes;
 
-  plugin.version = '1.1.3';
+  plugin.version = '1.1.4';
   function site() { return (plugin.site || 'https://fenrirealm.com').replace(/\/+$/, ''); }
   function json(url) {
     return fetchLib.fetchApi(url).then(function (response) {
@@ -168,10 +168,33 @@ var e=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((functi
         }).get().filter(Boolean).join('\n');
       });
     }
-    if (!id) return fromPage();
+    // Si la API del capítulo falla (la web devuelve 500 a ratos), los datos
+    // que la propia página carga (`__data.json`) traen el mismo texto.
+    function fromPageData() {
+      return fetchLib.fetchApi(site() + '/series/' + page + '/__data.json?x-sveltekit-invalidated=001').then(function (response) {
+        return response.ok ? response.json().catch(function () { return null; }) : null;
+      }).then(function (data) {
+        var nodes = data && Array.isArray(data.nodes) ? data.nodes : [];
+        for (var i = 0; i < nodes.length; i++) {
+          var items = nodes[i] && Array.isArray(nodes[i].data) ? nodes[i].data : [];
+          for (var j = 0; j < items.length; j++) {
+            if (typeof items[j] !== 'string' || items[j].indexOf('"type":"doc"') === -1) continue;
+            try {
+              var html = editorHtml(JSON.parse(items[j]));
+              if (html) return html;
+            } catch (e) { /* otro dato de la página */ }
+          }
+        }
+        return '';
+      }).catch(function () { return ''; });
+    }
+    function rescue() {
+      return fromPageData().then(function (html) { return html || fromPage(); });
+    }
+    if (!id) return rescue();
     return json(site() + '/api/new/v2/chapters/' + encodeURIComponent(id)).then(function (data) {
       var content = data && data.content;
-      if (typeof content !== 'string' || !content.trim()) return fromPage();
+      if (typeof content !== 'string' || !content.trim()) return rescue();
       var trimmed = content.trim();
       if (trimmed.charAt(0) === '{' || trimmed.charAt(0) === '[') {
         try {
@@ -180,7 +203,7 @@ var e=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((functi
           if (html) return html;
         } catch (e) { /* no era JSON: se trata como HTML */ }
       }
-      return cleanHtml(trimmed) || fromPage();
-    });
+      return cleanHtml(trimmed) || rescue();
+    }, rescue);
   };
 })();

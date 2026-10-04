@@ -22,10 +22,10 @@ O abre la página: https://novel-sources.github.io/extensions/
 |---|---|---|
 | SkyNovels | 1.1.2 | Filtros de orden, estado y origen que la API admite; la ficha con los volúmenes que da la API (1.1.2) |
 | MVLempyr | 1.0.15 | La lista va de 20 en 20 y la búsqueda por tandas pequeñas, en vez de bajar el catálogo entero (~22 MB) cada vez |
-| Fenrir Realm | 1.1.3 | Lista y búsqueda con la API nueva de la web; el capítulo, desde la API y convertido del JSON del editor (antes salía como código) |
+| Fenrir Realm | 1.1.4 | Lista y búsqueda con la API nueva de la web; el capítulo, desde la API y convertido del JSON del editor (antes salía como código); si la API falla, desde los datos de la página |
 | Quanben | 1.1.2 | La portada entera (la oficial tomaba sólo la primera obra de cada bloque: 36 de 125) y las páginas de cada categoría |
 | TuNovelaLigera | 1.2.2 | Las fichas en formato Madara pedían su índice a la lista general de novelas (capítulos de otras obras); ahora a la propia obra |
-| dilar tube | 1.0.3 | La lista junta las novelas de cuatro páginas del listado de novedades, que mezcla cómics y novelas (la oficial daba a veces una sola), sin repetir obras entre páginas |
+| dilar tube | 1.0.4 | La lista junta las novelas de cuatro páginas del listado de novedades, que mezcla cómics y novelas (la oficial daba a veces una sola), sin repetir obras entre páginas; filtro por categoría (1.0.4) |
 | Ranobes | 2.0.3 | catálogo, filtros, búsqueda e índice DLE con JSON y páginas canónicas; pausa entre peticiones. |
 | Novel Arrow | 1.0.2 | mudanza a NovelPing, filtros, catálogo, búsqueda, archivo de capítulos y lectura. |
 | NOVA | 1.1.2 | filtros y catálogo WooCommerce sin el AJAX antiguo, incluida la búsqueda. |

@@ -14,9 +14,43 @@ var t=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))((functi
   var plugin = exports.default;
   // El módulo, no la función: el motor conecta la red justo antes de cada operación.
   var fetchLib = require('@libs/fetch');
+  var FilterTypes = require('@libs/filterInputs').FilterTypes;
   var WINDOW = 4;
 
-  plugin.version = '1.0.3';
+  plugin.version = '1.0.4';
+
+  // Las categorías de la web (sus números): la oficial no ofrece ninguna.
+  if (!plugin.filters) {
+    plugin.filters = {
+      category: {
+        type: FilterTypes.Picker, label: 'التصنيف', value: 'all',
+        options: [
+          { label: 'الكل', value: 'all' }, { label: 'رواية', value: '95' }, { label: 'رواية عربية', value: '75' },
+          { label: 'أكشن', value: '6' }, { label: 'مغامرات', value: '53' }, { label: 'رومانسي', value: '1' },
+          { label: 'خيال', value: '14' }, { label: 'دراما', value: '4' }, { label: 'كوميدي', value: '9' },
+          { label: 'غموض', value: '26' }, { label: 'رعب', value: '25' }, { label: 'فانتازيا', value: '73' },
+          { label: 'خيال علمي', value: '38' }, { label: 'تاريخي', value: '42' }, { label: 'فنون قتالية', value: '55' },
+          { label: 'إثارة', value: '22' }, { label: 'حريم', value: '15' }, { label: 'الحياة المدرسية', value: '59' },
+          { label: 'الحياة اليومية', value: '66' }, { label: 'خارق', value: '69' }, { label: 'نفسي', value: '17' },
+          { label: 'تراجيدي', value: '85' }
+        ]
+      }
+    };
+  }
+
+  function chosenCategory(options) {
+    var filter = options && options.filters && options.filters.category;
+    var value = filter && typeof filter === 'object' ? filter.value : filter;
+    value = value === undefined || value === null ? '' : String(value).trim();
+    return value === 'all' ? '' : value;
+  }
+
+  function inCategory(novel, category) {
+    if (!category) return true;
+    return (Array.isArray(novel.categories) ? novel.categories : []).some(function (c) {
+      return c && (String(c.id) === category || String(c.name || '').trim() === category);
+    });
+  }
 
   function base() { return String(plugin.site || 'https://golden.rest/').replace(/\/+$/, '') + '/'; }
 
@@ -26,7 +60,8 @@ var t=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))((functi
       .then(function (body) { return (body && Array.isArray(body.releases)) ? body.releases : []; });
   }
 
-  plugin.popularNovels = function (page) {
+  plugin.popularNovels = function (page, options) {
+    var category = chosenCategory(options);
     var first = ((Number(page) || 1) - 1) * WINDOW + 1;
     var rows = [], seen = {};
     function step(offset) {
@@ -34,7 +69,7 @@ var t=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))((functi
       return releases(first + offset).then(function (list) {
         list.forEach(function (release) {
           var novel = release && release.manga;
-          if (!novel || !novel.is_novel || seen[novel.id]) return;
+          if (!novel || !novel.is_novel || seen[novel.id] || !inCategory(novel, category)) return;
           seen[novel.id] = true;
           rows.push({
             name: novel.arabic_title || novel.title || 'novel',
