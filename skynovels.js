@@ -15,7 +15,7 @@ var e=this&&this.__awaiter||function(e,n,a,l){return new(a||(a=Promise))((functi
   var fetchLib = require('@libs/fetch');
   var api = plugin.apiSite || 'https://api.skynovels.net/api/';
 
-  plugin.version = '1.1.3';
+  plugin.version = '1.1.4';
   var genres = plugin.filters && plugin.filters.genres;
   plugin.filters = {
     order: {
@@ -106,7 +106,7 @@ var e=this&&this.__awaiter||function(e,n,a,l){return new(a||(a=Promise))((functi
           cover: api + 'get-image/' + novel.image + '/novels/false',
           genres: genres,
           author: novel.nvl_writer,
-          summary: novel.nvl_content,
+          summary: markdownToText(novel.nvl_content),
           status: novel.nvl_status,
           chapters: chapters
         };
@@ -165,6 +165,19 @@ var e=this&&this.__awaiter||function(e,n,a,l){return new(a||(a=Promise))((functi
     });
     flush();
     return html.join('\n');
+  }
+
+  // 1.1.4 · La sinopsis también llega en Markdown, y la ficha la muestra como
+  // texto: se quitan las marcas y se conservan los párrafos.
+  function markdownToText(markdown) {
+    return markdownToHtml(markdown)
+      .replace(/<br>/g, '\n')
+      .replace(/<hr>/g, '')
+      .replace(/<\/(?:p|h\d|blockquote)>/g, '\n\n')
+      .replace(/<[^>]+>/g, '')
+      .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
   }
 
   plugin.parseChapter = function (chapterPath) {

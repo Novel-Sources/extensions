@@ -20,7 +20,7 @@ O abre la página: https://novel-sources.github.io/extensions/
 
 | Extensión | Versión | Qué corrige |
 |---|---|---|
-| SkyNovels | 1.1.3 | Filtros de orden, estado y origen que la API admite; la ficha con los volúmenes que da la API (1.1.2); el capítulo con su formato —negritas, cursivas, citas y separadores— en vez de los símbolos de Markdown (1.1.3) |
+| SkyNovels | 1.1.4 | Filtros de orden, estado y origen que la API admite; la ficha con los volúmenes que da la API (1.1.2); el capítulo con su formato —negritas, cursivas, citas y separadores— en vez de los símbolos de Markdown (1.1.3); la sinopsis, también (1.1.4) |
 | MVLempyr | 1.0.15 | La lista va de 20 en 20 y la búsqueda por tandas pequeñas, en vez de bajar el catálogo entero (~22 MB) cada vez |
 | Fenrir Realm | 1.1.4 | Lista y búsqueda con la API nueva de la web; el capítulo, desde la API y convertido del JSON del editor (antes salía como código); si la API falla, desde los datos de la página |
 | Quanben | 1.1.2 | La portada entera (la oficial tomaba sólo la primera obra de cada bloque: 36 de 125) y las páginas de cada categoría |
