@@ -52,5 +52,41 @@
     "version": "1.2.2",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/tunovelaligera.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/tunovelaligera/icon.png"
+  },
+  {
+    "id": "ranobes",
+    "name": "Ranobes",
+    "site": "https://ranobes.top",
+    "lang": "English",
+    "version": "2.0.3",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/ranobes.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/ranobes/ranobes/icon.png"
+  },
+  {
+    "id": "novelarrow",
+    "name": "Novel Arrow",
+    "site": "https://novelping.com/",
+    "lang": "English",
+    "version": "1.0.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/novelarrow.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/novelarrow/icon.png"
+  },
+  {
+    "id": "nova",
+    "name": "NOVA",
+    "site": "https://novelasligeras.net",
+    "lang": "Español",
+    "version": "1.1.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/nova.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/nova/icon.png"
+  },
+  {
+    "id": "azora",
+    "name": "Azora",
+    "site": "https://azorafly.com/",
+    "lang": "‎العربية",
+    "version": "2.2.1",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/azora.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/madara/azora/icon.png"
   }
 ]

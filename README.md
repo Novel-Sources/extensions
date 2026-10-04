@@ -26,6 +26,12 @@ O abre la página: https://novel-sources.github.io/extensions/
 | Quanben | 1.1.2 | La portada entera (la oficial tomaba sólo la primera obra de cada bloque: 36 de 125) y las páginas de cada categoría |
 | TuNovelaLigera | 1.2.2 | Las fichas en formato Madara pedían su índice a la lista general de novelas (capítulos de otras obras); ahora a la propia obra |
 | dilar tube | 1.0.3 | La lista junta las novelas de cuatro páginas del listado de novedades, que mezcla cómics y novelas (la oficial daba a veces una sola), sin repetir obras entre páginas |
+| Ranobes | 2.0.3 | catálogo, filtros, búsqueda e índice DLE con JSON y páginas canónicas; pausa entre peticiones. |
+| Novel Arrow | 1.0.2 | mudanza a NovelPing, filtros, catálogo, búsqueda, archivo de capítulos y lectura. |
+| NOVA | 1.1.2 | filtros y catálogo WooCommerce sin el AJAX antiguo, incluida la búsqueda. |
+| Azora | 2.2.1 | mudanza a AzoraFly y lectura del catálogo, búsqueda, islas Astro y capítulos. |
+
+Novel Arrow y Azora cambian de sitio: el lector debe confirmar el cambio a la versión corregida.
 
 Cada archivo es **la extensión oficial de LNReader sin tocar**, más una
 corrección al final, separada y comentada, para que se vea exactamente qué
