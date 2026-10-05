@@ -43,6 +43,7 @@ LNReader. *Written from scratch for sites that had no extension.*
 |---|---|---|
 | Pabellón Literario | 1.0.0 | Biblioteca con todos sus filtros (29 géneros, traducción, idioma original, clasificación y orden), búsqueda, novedades, capítulos agrupados por arco y el texto sin los botones de comentarios |
 | Ares Scanlation | 1.0.0 | Lista por orden (más vistas, tendencia, valoración, novedades, nuevas, A–Z), filtros de la búsqueda avanzada (40 géneros, estado, contenido adulto), búsqueda, ficha con títulos alternativos y capítulos de pago marcados con 🔒, que se pueden ocultar en los ajustes de la extensión |
+| JabraScan | 1.0.0 | Todo el catálogo en una petición, con orden (últimos capítulos, valoración, nuevas, A–Z) y filtros (24 géneros, estado, origen, contenido adulto), búsqueda también por nombres alternativos, capítulos agrupados por volumen o arco y sin los programados. Los capítulos son PDF: la app los convierte en párrafos |
 
 Cada extensión corregida es **la extensión oficial de LNReader sin tocar**, más una
 corrección al final, separada y comentada, para que se vea exactamente qué

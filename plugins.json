@@ -115,5 +115,14 @@
     "version": "1.0.0",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/aresscanlation.js",
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/aresscanlation.png"
+  },
+  {
+    "id": "jabrascan",
+    "name": "JabraScan",
+    "site": "https://jabrascan.net/",
+    "lang": "Español",
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/jabrascan.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/jabrascan.png"
   }
 ]
