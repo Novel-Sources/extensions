@@ -106,5 +106,14 @@
     "version": "2.2.1",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/AnimesHoy12.js",
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/anslid.png"
+  },
+  {
+    "id": "aresscanlation",
+    "name": "Ares Scanlation",
+    "site": "https://aresscanlationovel.com/",
+    "lang": "Español",
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/aresscanlation.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/aresscanlation.png"
   }
 ]
