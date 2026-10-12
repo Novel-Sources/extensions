@@ -133,5 +133,14 @@
     "version": "1.0.0",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/novelaenespanol.js",
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/novelaenespanol.png"
+  },
+  {
+    "id": "devilnovels",
+    "name": "Devilnovels",
+    "site": "https://devilnovels.com/",
+    "lang": "Español",
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/devilnovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/devilnovels.png"
   }
 ]
