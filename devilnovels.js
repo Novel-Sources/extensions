@@ -28,13 +28,43 @@ var SITE = 'https://devilnovels.com/';
 // The chapter tab holds 100 chapters per page, like the novel page asks for.
 var PER_PAGE = 100;
 
+// Only this site's own addresses: a link to another host in a list or in
+// the index is dropped, and is never requested.
+var OWN = /^https:\/\/(www\.)?devilnovels\.com(\/|$)/i;
+
 function absolute(path) {
-  if (/^https?:\/\//i.test(path)) return path;
-  return SITE + String(path || '').replace(/^\/+/, '');
+  var value = String(path || '');
+  if (/^[a-z][a-z0-9+.-]*:|^\/\//i.test(value)) {
+    if (!OWN.test(value)) throw new Error('Ruta fuera de la web: ' + value.slice(0, 80));
+    return value;
+  }
+  return SITE + value.replace(/^\/+/, '');
+}
+
+// A picture's address as the page gives it: the app downloads covers with
+// its own rules, the extension never requests them.
+function image(url) {
+  var value = String(url || '');
+  return /^https?:\/\//i.test(value) ? value : SITE + value.replace(/^\/+/, '');
+}
+
+// A page of this site, as a promise: an address of another host fails
+// without being requested.
+function page(path) {
+  return new Promise(function (resolve) { resolve(absolute(path)); }).then(function (url) { return text(url); });
 }
 
 function relative(url) {
-  return String(url || '').replace(/^https?:\/\/(www\.)?devilnovels\.com\/?/i, '').replace(/^\/+/, '');
+  var value = String(url || '');
+  if (/^[a-z][a-z0-9+.-]*:|^\/\//i.test(value) && !OWN.test(value)) return '';
+  return value.replace(OWN, '').replace(/^\/+/, '');
+}
+
+// The novel's own name in the site, «obra/» from «obra/capitulo/42/» or
+// «obra/?x=y»: the storage keys hold only that, never a query (RB2-D4).
+function novelKey(path) {
+  var slug = String(path || '').split(/[?#]/)[0].replace(/^\/+/, '').split('/')[0];
+  return /^[a-z0-9-]{1,120}$/i.test(slug) ? slug.toLowerCase() + '/' : '';
 }
 
 function text(url, init) {
@@ -69,7 +99,7 @@ function cover(img) {
     if (parts[0] && w > width) { best = parts[0]; width = w; }
   });
   var url = best || img.attr('data-src') || img.attr('data-lazy-src') || img.attr('src') || '';
-  return url && !/^data:/.test(url) ? absolute(url) : '';
+  return url && !/^data:/.test(url) ? image(url) : '';
 }
 
 // The site's own novel list: every novel on a single page.
@@ -102,7 +132,7 @@ function latest(html) {
     seen[path] = true;
     var thumb = card.find('img').first().attr('src') || '';
     novels.push({ name: name, path: path,
-      cover: thumb && !/^data:/.test(thumb) ? absolute(thumb) : defaultCover });
+      cover: thumb && !/^data:/.test(thumb) ? image(thumb) : defaultCover });
   });
   return novels;
 }
@@ -139,7 +169,7 @@ function Plugin() {
   this.id = 'devilnovels';
   this.name = 'Devilnovels';
   this.site = SITE;
-  this.version = '1.0.0';
+  this.version = '1.0.1';
   this.icon = 'icons/devilnovels.png';
   this.pluginSettings = {
     hideLocked: { value: '', label: 'Ocultar capítulos de pago', type: FilterTypes.Switch }
@@ -182,8 +212,10 @@ Plugin.prototype.searchNovels = function (term, page) {
 };
 
 Plugin.prototype.parseNovel = function (novelPath) {
-  var pageURL = absolute(novelPath).replace(/\/?$/, '/');
-  return text(pageURL).then(function (html) {
+  // The novel page ends in «/»; a query, if any, is left as it came.
+  var address = String(novelPath || '');
+  if (!/[?#]/.test(address)) address = address.replace(/\/?$/, '/');
+  return page(address).then(function (html) {
     var $ = cheerio.load(html);
     var title = $('.nv-title').first();
     if (!title.length) throw new Error('La web cambió: no se encuentra la ficha de la obra');
@@ -226,8 +258,11 @@ Plugin.prototype.parseNovel = function (novelPath) {
     // The internal id, for parsePage: tiny public data, so every index page
     // costs a single request.
     var lockedIds = lockedIdsFrom(html);
-    storage.set('cat:' + novelPath, catId[1]);
-    storage.set('locked:' + novelPath, JSON.stringify(lockedIds));
+    var key = novelKey(novelPath);
+    if (key) {
+      storage.set('cat:' + key, catId[1]);
+      storage.set('locked:' + key, JSON.stringify(lockedIds));
+    }
     return chaptersPage(catId[1], 1).then(function (data) {
       novel.chapters = indexEntries(data.chapters, 0, lockedIds);
       // A huge paginated index: the app asks for each page with parsePage.
@@ -244,7 +279,9 @@ function indexEntries(entries, offset, lockedIds) {
   var chapters = [];
   (entries || []).forEach(function (chapter, index) {
     var title = decode(chapter.title).replace(/\s+/g, ' ').trim();
-    if (!title || !chapter.link) return;
+    var path = relative(chapter.link);
+    // A link to another host is not a chapter of this site (RB2-D1).
+    if (!title || !path) return;
     // The site marks paid chapters in LOCKED_IDS, on the novel page, and
     // draws the padlock itself (dv-chapter-access).
     var locked = (lockedIds || []).indexOf(Number(chapter.id)) !== -1 ||
@@ -252,7 +289,7 @@ function indexEntries(entries, offset, lockedIds) {
     if (locked && hideLocked) return;
     chapters.push({
       name: locked && !/^🔒/.test(title) ? '🔒 ' + title : title,
-      path: relative(chapter.link),
+      path: path,
       // The position in the whole index, like the site's tab, even when
       // paid chapters are hidden.
       chapterNumber: offset + index + 1
@@ -271,8 +308,9 @@ function lockedIdsFrom(html) {
 
 Plugin.prototype.parsePage = function (novelPath, page) {
   var n = parseInt(page, 10) || 1;
-  var cached = storage.get('cat:' + novelPath);
-  var cachedLocked = storage.get('locked:' + novelPath);
+  var key = novelKey(novelPath);
+  var cached = key && storage.get('cat:' + key);
+  var cachedLocked = key && storage.get('locked:' + key);
   function chapters(catId, lockedIds) {
     return chaptersPage(catId, n).then(function (data) {
       return { chapters: indexEntries(data.chapters, (n - 1) * PER_PAGE, lockedIds) };
@@ -283,18 +321,32 @@ Plugin.prototype.parsePage = function (novelPath, page) {
     try { lockedIds = JSON.parse(cachedLocked); } catch (e) { lockedIds = []; }
     return chapters(cached, lockedIds);
   }
-  return text(absolute(novelPath)).then(function (html) {
+  return page(novelPath).then(function (html) {
     var catId = /var CAT_ID\s*=\s*(\d+)/.exec(html);
     if (!catId) throw new Error('La web cambió: falta el identificador interno de la obra');
     var lockedIds = lockedIdsFrom(html);
-    storage.set('cat:' + novelPath, catId[1]);
-    storage.set('locked:' + novelPath, JSON.stringify(lockedIds));
+    if (key) {
+      storage.set('cat:' + key, catId[1]);
+      storage.set('locked:' + key, JSON.stringify(lockedIds));
+    }
     return chapters(catId[1], lockedIds);
   });
 };
 
+// The paid chapters the novel page listed, if it was opened before.
+function knownLocked(chapterPath) {
+  var key = novelKey(chapterPath);
+  var id = parseInt((/\/(\d+)\/?(?:[?#].*)?$/.exec(String(chapterPath)) || [])[1], 10);
+  if (!key || !id) return false;
+  try { return JSON.parse(storage.get('locked:' + key) || '[]').indexOf(id) !== -1; } catch (e) { return false; }
+}
+
+var LOCKED_NOTICE = '<p>This chapter is locked.</p><p>🔒 Capítulo de pago en la web: se desbloquea allí, o cuando la web lo libere.</p>';
+
 Plugin.prototype.parseChapter = function (chapterPath) {
-  return text(absolute(chapterPath)).then(function (html) {
+  // Known as paid: not even requested (RB2-D2).
+  if (knownLocked(chapterPath)) return Promise.resolve(LOCKED_NOTICE);
+  return page(chapterPath).then(function (html) {
     var $ = cheerio.load(html);
     var body = $('article.dv-post-article').first();
     if (!body.length) throw new Error('La web cambió: no se encuentra el texto del capítulo');
@@ -303,7 +355,7 @@ Plugin.prototype.parseChapter = function (chapterPath) {
     // tried. Never guess URLs to read what the site charges for.
     if (body.find('.dvca-paywall, .dvca-locked, .dv-locked').length ||
         /pts para desbloquear|cap[ií]tulo bloqueado|contenido exclusivo/i.test(body.text().slice(0, 500))) {
-      return '<p>This chapter is locked.</p><p>🔒 Capítulo de pago en la web: se desbloquea allí, o cuando la web lo libere.</p>';
+      return LOCKED_NOTICE;
     }
     // The donation block the site appends to every chapter (a «Cada
     // Donación…» heading with Patreon/PayPal links and a random GIF from
@@ -341,10 +393,18 @@ Plugin.prototype.parseChapter = function (chapterPath) {
     });
     // The text carries line breaks in the middle of sentences («la puerta
     // de<br> la aldea»), left by the translation tool: joined with a space,
-    // so the reader does not split the paragraph. A break after the end of
-    // a sentence, or before a capital letter, stays.
-    var content = (body.html() || '').trim()
-      .replace(/([^\s.!?…:;"”»>])\s*<br\s*\/?>\s*(?=[a-záéíóúüñ])/g, '$1 ');
+    // so the reader does not split the paragraph. Only between two pieces
+    // of text, and never after the end of a sentence or before a capital
+    // letter; attributes are not touched (RB2-D3).
+    body.find('br').each(function () {
+      var prev = this.prev, next = this.next;
+      while (next && next.type === 'text' && !/\S/.test(next.data)) next = next.next;
+      if (prev && prev.type === 'text' && next && next.type === 'text' &&
+          /[^\s.!?…:;"”»]\s*$/.test(prev.data) && /^\s*[a-záéíóúüñ]/.test(next.data)) {
+        $(this).replaceWith(' ');
+      }
+    });
+    var content = (body.html() || '').trim();
     if (!content) throw new Error('La web cambió: el capítulo no trae texto');
     return '<div class="chapter-content">' + content + '</div>';
   });
