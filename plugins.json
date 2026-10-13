@@ -1,104 +1,5 @@
 [
   {
-    "id": "skynovels",
-    "name": "SkyNovels",
-    "site": "https://www.skynovels.net/",
-    "lang": "Español",
-    "version": "1.1.4",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/skynovels.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/skynovels/icon.png"
-  },
-  {
-    "id": "mvlempyr.com",
-    "name": "MVLempyr",
-    "site": "https://www.mvlempyr.io/",
-    "lang": "English",
-    "version": "1.0.15",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/mvlempyr.com.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/mvlempyr/icon.png"
-  },
-  {
-    "id": "fenrir",
-    "name": "Fenrir Realm",
-    "site": "https://fenrirealm.com",
-    "lang": "English",
-    "version": "1.1.4",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/fenrir.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/fenrirrealm/icon.png"
-  },
-  {
-    "id": "quanben",
-    "name": "Quanben",
-    "site": "https://www.quanben.io/",
-    "lang": "中文, 汉语, 漢語",
-    "version": "1.1.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/quanben.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/cn/quanben/icon.png"
-  },
-  {
-    "id": "dilartube",
-    "name": "dilar tube",
-    "site": "https://golden.rest/",
-    "lang": "‎العربية",
-    "version": "1.0.4",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/dilartube.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/ar/dilartube/icon.png"
-  },
-  {
-    "id": "tunovelaligera",
-    "name": "TuNovelaLigera",
-    "site": "https://tunovelaligera.com",
-    "lang": "Español",
-    "version": "1.2.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/tunovelaligera.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/tunovelaligera/icon.png"
-  },
-  {
-    "id": "ranobes",
-    "name": "Ranobes",
-    "site": "https://ranobes.top",
-    "lang": "English",
-    "version": "2.0.3",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/ranobes.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/ranobes/ranobes/icon.png"
-  },
-  {
-    "id": "novelarrow",
-    "name": "Novel Arrow",
-    "site": "https://novelping.com/",
-    "lang": "English",
-    "version": "1.0.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/novelarrow.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/novelarrow/icon.png"
-  },
-  {
-    "id": "nova",
-    "name": "NOVA",
-    "site": "https://novelasligeras.net",
-    "lang": "Español",
-    "version": "1.1.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/nova.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/nova/icon.png"
-  },
-  {
-    "id": "azora",
-    "name": "Azora",
-    "site": "https://azorafly.com/",
-    "lang": "‎العربية",
-    "version": "2.2.1",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/azora.js",
-    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/madara/azora/icon.png"
-  },
-  {
-    "id": "pabellonliterario",
-    "name": "Pabellón Literario",
-    "site": "https://pabellonliterario.com/",
-    "lang": "Español",
-    "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/pabellonliterario.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/pabellonliterario.png"
-  },
-  {
     "id": "AnimesHoy12",
     "name": "Anslid Novels",
     "site": "https://anslid.com/",
@@ -117,6 +18,51 @@
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/aresscanlation.png"
   },
   {
+    "id": "astralnove",
+    "name": "Astral Novel Translations",
+    "site": "https://astralnovelstranslations.wordpress.com/",
+    "lang": "Español",
+    "version": "1.0.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/astralnove.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/astralnove.png"
+  },
+  {
+    "id": "azora",
+    "name": "Azora",
+    "site": "https://azorafly.com/",
+    "lang": "‎العربية",
+    "version": "2.2.1",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/azora.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/madara/azora/icon.png"
+  },
+  {
+    "id": "devilnovels",
+    "name": "Devilnovels",
+    "site": "https://devilnovels.com/",
+    "lang": "Español",
+    "version": "1.0.1",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/devilnovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/devilnovels.png"
+  },
+  {
+    "id": "dilartube",
+    "name": "dilar tube",
+    "site": "https://golden.rest/",
+    "lang": "‎العربية",
+    "version": "1.0.4",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/dilartube.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/ar/dilartube/icon.png"
+  },
+  {
+    "id": "fenrir",
+    "name": "Fenrir Realm",
+    "site": "https://fenrirealm.com",
+    "lang": "English",
+    "version": "1.1.4",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/fenrir.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/fenrirrealm/icon.png"
+  },
+  {
     "id": "jabrascan",
     "name": "JabraScan",
     "site": "https://jabrascan.net/",
@@ -124,6 +70,24 @@
     "version": "1.0.0",
     "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/jabrascan.js",
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/jabrascan.png"
+  },
+  {
+    "id": "mvlempyr.com",
+    "name": "MVLempyr",
+    "site": "https://www.mvlempyr.io/",
+    "lang": "English",
+    "version": "1.0.15",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/mvlempyr.com.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/mvlempyr/icon.png"
+  },
+  {
+    "id": "nova",
+    "name": "NOVA",
+    "site": "https://novelasligeras.net",
+    "lang": "Español",
+    "version": "1.1.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/nova.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/nova/icon.png"
   },
   {
     "id": "novelaenespanol",
@@ -135,12 +99,75 @@
     "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/novelaenespanol.png"
   },
   {
-    "id": "devilnovels",
-    "name": "Devilnovels",
-    "site": "https://devilnovels.com/",
+    "id": "novelarrow",
+    "name": "Novel Arrow",
+    "site": "https://novelping.com/",
+    "lang": "English",
+    "version": "1.0.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/novelarrow.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/novelarrow/icon.png"
+  },
+  {
+    "id": "pabellonliterario",
+    "name": "Pabellón Literario",
+    "site": "https://pabellonliterario.com/",
+    "lang": "Español",
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/pabellonliterario.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/pabellonliterario.png"
+  },
+  {
+    "id": "quanben",
+    "name": "Quanben",
+    "site": "https://www.quanben.io/",
+    "lang": "中文, 汉语, 漢語",
+    "version": "1.1.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/quanben.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/cn/quanben/icon.png"
+  },
+  {
+    "id": "ranobes",
+    "name": "Ranobes",
+    "site": "https://ranobes.top",
+    "lang": "English",
+    "version": "2.0.3",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/ranobes.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/ranobes/ranobes/icon.png"
+  },
+  {
+    "id": "skynovels",
+    "name": "SkyNovels",
+    "site": "https://www.skynovels.net/",
+    "lang": "Español",
+    "version": "1.1.4",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/skynovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/skynovels/icon.png"
+  },
+  {
+    "id": "tunovelaligera",
+    "name": "TuNovelaLigera",
+    "site": "https://tunovelaligera.com",
+    "lang": "Español",
+    "version": "1.2.2",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/tunovelaligera.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/tunovelaligera/icon.png"
+  },
+  {
+    "id": "matchanovels",
+    "name": "MatchaNovels",
+    "site": "https://matchanovels.com/",
     "lang": "Español",
     "version": "1.0.1",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/devilnovels.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/devilnovels.png"
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/matchanovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/matchanovels.png"
+  },
+  {
+    "id": "legnnovels",
+    "name": "LegsNovels",
+    "site": "https://legnnovels.com/",
+    "lang": "Español",
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/legnnovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/legnnovels.png"
   }
 ]
