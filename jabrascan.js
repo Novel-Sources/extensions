@@ -1,4 +1,4 @@
-// JabraScan (jabrascan.net) · Novel Sources
+// JabraScan (jabrascan.net) · Tianshuge
 //
 // An extension in the LNReader plugin format, written from scratch: there was
 // no official one for this site. JabraScan is not WordPress: its pages build

@@ -1,4 +1,4 @@
-// LegsNovels (legnnovels.com) · Novel Sources
+// LegsNovels (legnnovels.com) · Tianshuge
 //
 // An extension in the LNReader plugin format, written from scratch: there was
 // no official one for this site. The site could not be inspected: every route

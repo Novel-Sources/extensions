@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Novel Sources</title>
+<title>Tianshuge · 天书阁</title>
 <meta name="description" content="Extensiones corregidas para lectores de novelas compatibles con el formato de LNReader.">
 <style>
   :root { --bg:#f7f5f2; --card:#ffffff; --text:#1d1b19; --muted:#6b655e; --line:#e4dfd8; --accent:#b4532a; --ok:#2e7d4f; }
@@ -26,6 +26,8 @@
          font-size:17px; border-radius:10px; padding:14px 16px; margin-bottom:10px; }
   .hint { color:var(--muted); font-size:13px; margin:0 0 18px; text-align:center; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:12px; }
+  h2.lang { font-size:17px; margin:26px 0 10px; letter-spacing:-0.01em; }
+  h2.lang small { color:var(--muted); font-weight:400; font-size:14px; margin-left:6px; }
   .src { display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
   .src img { width:40px; height:40px; border-radius:8px; background:var(--bg); flex:none; }
   .src b { display:block; }
@@ -36,17 +38,17 @@
 </head>
 <body>
 <main>
-  <h1>Novel Sources</h1>
+  <h1>Tianshuge · 天书阁</h1>
   <p class="sub">Extensiones corregidas para lectores de novelas compatibles con el formato de LNReader.<br>
   <em>Fixed extensions for novel readers that support the LNReader plugin format.</em></p>
 
   <div class="box">
-    <a class="add" id="add" href="lnrepo://add?url=https%3A%2F%2Fraw.githubusercontent.com%2FNovel-Sources%2Fextensions%2Fmain%2Fplugins.json">Añadir a mi lector</a>
+    <a class="add" id="add" href="lnrepo://add?url=https%3A%2F%2Fraw.githubusercontent.com%2FTianshuge-Sources%2Fextensions%2Fmain%2Fplugins.json">Añadir a mi lector</a>
     <p class="hint">Abre tu lector y te pide confirmación. Si no se abre, copia la dirección de abajo.<br>
     <em>Opens your reader and asks to confirm. If nothing happens, copy the address below.</em></p>
     <p class="label">Repositorio · Repository</p>
     <div class="url">
-      <code id="repo">https://raw.githubusercontent.com/Novel-Sources/extensions/main/plugins.json</code>
+      <code id="repo">https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/plugins.json</code>
       <button id="copy" type="button">Copiar</button>
     </div>
     <ol>
@@ -57,12 +59,12 @@
   </div>
 
   <p class="label">Extensiones · Extensions</p>
-  <div class="grid" id="list"><p class="sub">Cargando…</p></div>
+  <div id="list"><p class="sub">Cargando…</p></div>
 
   <footer>
     Cada extensión es la oficial de LNReader sin tocar más una corrección aparte (licencia MIT).
     ¿Administras una de estas webs y quieres que se retire su extensión? Abre un
-    <a href="https://github.com/Novel-Sources/extensions/issues">issue</a> y se retira.
+    <a href="https://github.com/Tianshuge-Sources/extensions/issues">issue</a> y se retira.
   </footer>
 </main>
 <script>
@@ -75,17 +77,38 @@
     copy.textContent = 'Copiada ✓'; copy.classList.add('done');
     setTimeout(() => { copy.textContent = 'Copiar'; copy.classList.remove('done'); }, 2000);
   });
+  // Idioma tal como lo declara cada extensión (formato de LNReader), con su nombre en español.
+  const IDIOMAS = [['español', 'Español'], ['english', 'Inglés · English'], ['العربية', 'Árabe · العربية'], ['中文', 'Chino · 中文']];
+  const nombreIdioma = (lang) => {
+    const clave = (lang || '').replace(/[\u200e\u200f]/g, '').trim();
+    const hit = IDIOMAS.find(([k]) => clave.toLowerCase().includes(k));
+    return { orden: hit ? IDIOMAS.indexOf(hit) : 99, titulo: hit ? hit[1] : (clave || 'Otros · Other') };
+  };
   fetch('plugins.json', { cache: 'no-cache' }).then(r => r.json()).then(list => {
-    const grid = document.getElementById('list'); grid.textContent = '';
-    for (const p of list.sort((a, b) => a.name.localeCompare(b.name))) {
-      const card = document.createElement('div'); card.className = 'src';
-      const img = document.createElement('img'); img.alt = ''; img.loading = 'lazy'; img.src = p.iconUrl || '';
-      img.onerror = () => { img.style.visibility = 'hidden'; };
-      const text = document.createElement('div');
-      const name = document.createElement('b'); name.textContent = p.name;
-      const meta = document.createElement('span');
-      meta.textContent = `${(p.site || '').replace(/^https?:\/\//, '').replace(/\/$/, '')} · ${p.lang} · v${p.version}`;
-      text.append(name, meta); card.append(img, text); grid.append(card);
+    const cont = document.getElementById('list'); cont.textContent = '';
+    const grupos = new Map();
+    for (const p of list) {
+      const { orden, titulo } = nombreIdioma(p.lang);
+      if (!grupos.has(titulo)) grupos.set(titulo, { orden, items: [] });
+      grupos.get(titulo).items.push(p);
+    }
+    const orden = [...grupos.entries()].sort((a, b) => a[1].orden - b[1].orden || a[0].localeCompare(b[0]));
+    for (const [titulo, grupo] of orden) {
+      const h = document.createElement('h2'); h.className = 'lang';
+      const t = document.createElement('span'); t.textContent = titulo; t.style.unicodeBidi = 'isolate'; h.append(t);
+      const n = document.createElement('small'); n.textContent = String(grupo.items.length); h.append(n);
+      const grid = document.createElement('div'); grid.className = 'grid';
+      for (const p of grupo.items.sort((a, b) => a.name.localeCompare(b.name))) {
+        const card = document.createElement('div'); card.className = 'src';
+        const img = document.createElement('img'); img.alt = ''; img.loading = 'lazy'; img.src = p.iconUrl || '';
+        img.onerror = () => { img.style.visibility = 'hidden'; };
+        const text = document.createElement('div');
+        const name = document.createElement('b'); name.textContent = p.name;
+        const meta = document.createElement('span');
+        meta.textContent = `${(p.site || '').replace(/^https?:\/\//, '').replace(/\/$/, '')} · v${p.version}`;
+        text.append(name, meta); card.append(img, text); grid.append(card);
+      }
+      cont.append(h, grid);
     }
   }).catch(() => { document.getElementById('list').innerHTML = '<p class="sub">No se pudo cargar la lista.</p>'; });
 </script>

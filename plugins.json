@@ -5,8 +5,8 @@
     "site": "https://anslid.com/",
     "lang": "Español",
     "version": "2.2.1",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/AnimesHoy12.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/anslid.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/AnimesHoy12.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/anslid.png"
   },
   {
     "id": "aresscanlation",
@@ -14,8 +14,8 @@
     "site": "https://aresscanlationovel.com/",
     "lang": "Español",
     "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/aresscanlation.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/aresscanlation.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/aresscanlation.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/aresscanlation.png"
   },
   {
     "id": "astralnove",
@@ -23,8 +23,8 @@
     "site": "https://astralnovelstranslations.wordpress.com/",
     "lang": "Español",
     "version": "1.0.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/astralnove.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/astralnove.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/astralnove.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/astralnove.png"
   },
   {
     "id": "azora",
@@ -32,7 +32,7 @@
     "site": "https://azorafly.com/",
     "lang": "‎العربية",
     "version": "2.2.1",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/azora.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/azora.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/madara/azora/icon.png"
   },
   {
@@ -41,8 +41,8 @@
     "site": "https://devilnovels.com/",
     "lang": "Español",
     "version": "1.0.1",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/devilnovels.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/devilnovels.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/devilnovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/devilnovels.png"
   },
   {
     "id": "dilartube",
@@ -50,7 +50,7 @@
     "site": "https://golden.rest/",
     "lang": "‎العربية",
     "version": "1.0.4",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/dilartube.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/dilartube.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/ar/dilartube/icon.png"
   },
   {
@@ -59,7 +59,7 @@
     "site": "https://fenrirealm.com",
     "lang": "English",
     "version": "1.1.4",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/fenrir.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/fenrir.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/fenrirrealm/icon.png"
   },
   {
@@ -68,8 +68,8 @@
     "site": "https://jabrascan.net/",
     "lang": "Español",
     "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/jabrascan.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/jabrascan.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/jabrascan.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/jabrascan.png"
   },
   {
     "id": "mvlempyr.com",
@@ -77,7 +77,7 @@
     "site": "https://www.mvlempyr.io/",
     "lang": "English",
     "version": "1.0.15",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/mvlempyr.com.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/mvlempyr.com.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/mvlempyr/icon.png"
   },
   {
@@ -86,7 +86,7 @@
     "site": "https://novelasligeras.net",
     "lang": "Español",
     "version": "1.1.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/nova.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/nova.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/nova/icon.png"
   },
   {
@@ -95,8 +95,8 @@
     "site": "https://novelaenespanol.com/",
     "lang": "Español",
     "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/novelaenespanol.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/novelaenespanol.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/novelaenespanol.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/novelaenespanol.png"
   },
   {
     "id": "novelarrow",
@@ -104,7 +104,7 @@
     "site": "https://novelping.com/",
     "lang": "English",
     "version": "1.0.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/novelarrow.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/novelarrow.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/novelarrow/icon.png"
   },
   {
@@ -113,8 +113,8 @@
     "site": "https://pabellonliterario.com/",
     "lang": "Español",
     "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/pabellonliterario.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/pabellonliterario.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/pabellonliterario.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/pabellonliterario.png"
   },
   {
     "id": "quanben",
@@ -122,7 +122,7 @@
     "site": "https://www.quanben.io/",
     "lang": "中文, 汉语, 漢語",
     "version": "1.1.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/quanben.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/quanben.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/cn/quanben/icon.png"
   },
   {
@@ -131,7 +131,7 @@
     "site": "https://ranobes.top",
     "lang": "English",
     "version": "2.0.3",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/ranobes.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/ranobes.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/multisrc/ranobes/ranobes/icon.png"
   },
   {
@@ -140,7 +140,7 @@
     "site": "https://www.skynovels.net/",
     "lang": "Español",
     "version": "1.1.4",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/skynovels.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/skynovels.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/skynovels/icon.png"
   },
   {
@@ -149,7 +149,7 @@
     "site": "https://tunovelaligera.com",
     "lang": "Español",
     "version": "1.2.2",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/tunovelaligera.js",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/tunovelaligera.js",
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/es/tunovelaligera/icon.png"
   },
   {
@@ -158,8 +158,8 @@
     "site": "https://matchanovels.com/",
     "lang": "Español",
     "version": "1.0.1",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/matchanovels.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/matchanovels.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/matchanovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/matchanovels.png"
   },
   {
     "id": "legnnovels",
@@ -167,7 +167,7 @@
     "site": "https://legnnovels.com/",
     "lang": "Español",
     "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/legnnovels.js",
-    "iconUrl": "https://raw.githubusercontent.com/Novel-Sources/extensions/main/icons/legnnovels.png"
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/legnnovels.js",
+    "iconUrl": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/icons/legnnovels.png"
   }
 ]

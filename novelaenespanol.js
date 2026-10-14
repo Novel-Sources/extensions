@@ -1,4 +1,4 @@
-// Novela en Español (novelaenespanol.com) · Novel Sources
+// Novela en Español (novelaenespanol.com) · Tianshuge
 //
 // An extension in the LNReader plugin format, written from scratch: there was
 // no official one for this site. The site is a WordPress with the theme

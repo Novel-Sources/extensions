@@ -1,4 +1,4 @@
-// Pabellón Literario (pabellonliterario.com) · Novel Sources
+// Pabellón Literario (pabellonliterario.com) · Tianshuge
 //
 // An extension in the LNReader plugin format, written from scratch: there was
 // no official one for this site. It uses what the site itself uses, so every

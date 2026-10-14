@@ -1,4 +1,4 @@
-// Astral Novel Translations (astralnovelstranslations.wordpress.com) · Novel Sources
+// Astral Novel Translations (astralnovelstranslations.wordpress.com) · Tianshuge
 //
 // An extension in the LNReader plugin format, written from scratch: there was
 // no official one for this site. The site is a WordPress.com translation blog

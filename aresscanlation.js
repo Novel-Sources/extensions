@@ -1,4 +1,4 @@
-// Ares Scanlation (aresscanlationovel.com) · Novel Sources
+// Ares Scanlation (aresscanlationovel.com) · Tianshuge
 //
 // An extension in the LNReader plugin format, written from scratch: there was
 // no official one for this site. The site runs the Madara theme, with the

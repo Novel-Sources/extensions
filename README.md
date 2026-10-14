@@ -1,4 +1,4 @@
-# Novel Sources · extensiones
+# Tianshuge · 天书阁 · extensiones
 
 Extensiones para lectores de novelas compatibles con el **formato de LNReader**.
 Son versiones corregidas de extensiones cuya web cambió y cuya versión oficial
@@ -12,9 +12,9 @@ was updated.*
 
 En tu lector: **Extensiones → Repositorios → Añadir** y pega:
 
-    https://raw.githubusercontent.com/Novel-Sources/extensions/main/plugins.json
+    https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/plugins.json
 
-O abre la página: https://novel-sources.github.io/extensions/
+O abre la página: https://tianshuge-sources.github.io/extensions/
 
 ## Qué hay · What's inside
 
