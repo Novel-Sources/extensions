@@ -63,6 +63,15 @@
     "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/fenrirrealm/icon.png"
   },
   {
+    "id": "genesistudio",
+    "name": "Genesis",
+    "site": "https://genesistudio.com",
+    "lang": "English",
+    "version": "2.0.2",
+    "url": "https://raw.githubusercontent.com/Tianshuge-Sources/extensions/main/genesistudio.js",
+    "iconUrl": "https://raw.githubusercontent.com/lnreader/lnreader-plugins/plugins/v3.0.0/public/static/src/en/genesis/icon.png"
+  },
+  {
     "id": "jabrascan",
     "name": "JabraScan",
     "site": "https://jabrascan.net/",

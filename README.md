@@ -34,6 +34,7 @@ Cada extensión declara su idioma (campo `lang` de `plugins.json`) y el lector l
 | NOVA | 1.1.2 | filtros y catálogo WooCommerce sin el AJAX antiguo, incluida la búsqueda. |
 | Azora | 2.2.1 | mudanza a AzoraFly y lectura del catálogo, búsqueda, islas Astro y capítulos. |
 | Anslid Novels (AnimesHoy12) | 2.2.2 | Mudanza a anslid.com: lista, filtros (orden, 15 géneros, estado), búsqueda, ficha sin el anuncio de la tienda de puntos y capítulos de pago marcados con 🔒, que se pueden ocultar en los ajustes de la extensión; portada nítida y ligera (no el original) |
+| Genesis | 2.0.2 | La lista y la búsqueda traen la portada con el nombre real del archivo (jpg, webp, png): la oficial les ponía «.png» y cuatro de cada cinco salían sin portada. |
 
 Novel Arrow, Azora y AnimesHoy12 cambian de sitio: el lector debe confirmar el cambio a la versión corregida.
 
