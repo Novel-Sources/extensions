@@ -16,6 +16,9 @@ En tu lector: **Extensiones → Repositorios → Añadir** y pega:
 
 O abre la página: https://tianshuge-sources.github.io/extensions/
 
+Cada extensión declara su idioma (campo `lang` de `plugins.json`) y el lector las agrupa por idioma.
+*Every extension declares its language (the `lang` field), and readers group them by language.*
+
 ## Qué hay · What's inside
 
 | Extensión | Versión | Qué corrige |
@@ -30,7 +33,7 @@ O abre la página: https://tianshuge-sources.github.io/extensions/
 | Novel Arrow | 1.0.2 | mudanza a NovelPing, filtros, catálogo, búsqueda, archivo de capítulos y lectura. |
 | NOVA | 1.1.2 | filtros y catálogo WooCommerce sin el AJAX antiguo, incluida la búsqueda. |
 | Azora | 2.2.1 | mudanza a AzoraFly y lectura del catálogo, búsqueda, islas Astro y capítulos. |
-| Anslid Novels (AnimesHoy12) | 2.2.1 | Mudanza a anslid.com: lista, filtros (orden, 15 géneros, estado), búsqueda, ficha sin el anuncio de la tienda de puntos y capítulos de pago marcados con 🔒, que se pueden ocultar en los ajustes de la extensión |
+| Anslid Novels (AnimesHoy12) | 2.2.2 | Mudanza a anslid.com: lista, filtros (orden, 15 géneros, estado), búsqueda, ficha sin el anuncio de la tienda de puntos y capítulos de pago marcados con 🔒, que se pueden ocultar en los ajustes de la extensión; portada nítida y ligera (no el original) |
 
 Novel Arrow, Azora y AnimesHoy12 cambian de sitio: el lector debe confirmar el cambio a la versión corregida.
 

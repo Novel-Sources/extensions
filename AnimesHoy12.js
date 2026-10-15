@@ -21,7 +21,7 @@ var t=this&&this.__awaiter||function(t,e,a,r){return new(a||(a=Promise))((functi
   var SITE = 'https://anslid.com/';
   plugin.site = SITE;
   plugin.name = 'Anslid Novels';
-  plugin.version = '2.2.1';
+  plugin.version = '2.2.2';
 
   // Los capítulos de pago se cobran con monedas en la web. Se listan con 🔒
   // —en la app no se abren: dicen que son de pago— y quien prefiera no
@@ -76,15 +76,20 @@ var t=this&&this.__awaiter||function(t,e,a,r){return new(a||(a=Promise))((functi
     return s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   }
 
-  // La portada más grande que ofrece la página, no la miniatura.
+  // La variante más pequeña que sigue siendo nítida en el teléfono (350 px de
+  // ancho o más), no la miniatura de 193 px ni el original: en la búsqueda el
+  // original llegaba a 8,5 MB y la app lo descartaba por pesado (15/10).
+  var COVER_WIDTH = 350;
   function cover($, img) {
-    var best = '', width = 0;
+    var sharp = '', sharpWidth = Infinity, largest = '', largestWidth = 0;
     String(img.attr('data-srcset') || img.attr('srcset') || '').split(',').forEach(function (entry) {
       var parts = entry.trim().split(/\s+/);
       var w = parseInt(parts[1], 10) || 0;
-      if (parts[0] && w > width) { best = parts[0]; width = w; }
+      if (!parts[0]) return;
+      if (w >= COVER_WIDTH && w < sharpWidth) { sharp = parts[0]; sharpWidth = w; }
+      if (w > largestWidth) { largest = parts[0]; largestWidth = w; }
     });
-    var url = best || img.attr('data-src') || img.attr('data-lazy-src') || img.attr('src') || '';
+    var url = sharp || largest || img.attr('data-src') || img.attr('data-lazy-src') || img.attr('src') || '';
     return /dflazy|^data:/.test(url) ? '' : url;
   }
 
