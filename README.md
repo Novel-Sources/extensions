@@ -24,7 +24,7 @@ Cada extensión declara su idioma (campo `lang` de `plugins.json`) y el lector l
 | Extensión | Versión | Qué corrige |
 |---|---|---|
 | SkyNovels | 1.1.4 | Filtros de orden, estado y origen que la API admite; la ficha con los volúmenes que da la API (1.1.2); el capítulo con su formato —negritas, cursivas, citas y separadores— en vez de los símbolos de Markdown (1.1.3); la sinopsis, también (1.1.4) |
-| MVLempyr | 1.0.15 | La lista va de 20 en 20 y la búsqueda por tandas pequeñas, en vez de bajar el catálogo entero (~22 MB) cada vez |
+| MVLempyr | 1.0.16 | Búsqueda por código, slug exacto y prefijo alfabético sin bajar el catálogo; lista de las más nuevas con orden (antiguas, A–Z, Z–A), novedades por capítulos nuevos y filtros que funcionan (género, etiqueta, idioma, estado); ficha e índice por API con páginas de 500; ajuste para ocultar contenido adulto |
 | Fenrir Realm | 1.1.4 | Lista y búsqueda con la API nueva de la web; el capítulo, desde la API y convertido del JSON del editor (antes salía como código); si la API falla, desde los datos de la página |
 | Quanben | 1.1.2 | La portada entera (la oficial tomaba sólo la primera obra de cada bloque: 36 de 125) y las páginas de cada categoría |
 | TuNovelaLigera | 1.2.2 | Las fichas en formato Madara pedían su índice a la lista general de novelas (capítulos de otras obras); ahora a la propia obra |
